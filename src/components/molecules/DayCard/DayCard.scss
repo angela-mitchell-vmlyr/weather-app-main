@@ -1,0 +1,47 @@
+.day-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--day-card-padding);
+  background: var(--day-card-bg);
+  border: none;
+  border-radius: var(--day-card-radius);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: var(--transition-base);
+  
+  &:hover {
+    background: var(--day-card-bg-hover);
+  }
+  
+  &--selected {
+    background: var(--day-card-bg-selected);
+  }
+  
+  &__day {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+  
+  &__icon {
+    font-size: var(--font-size-3xl);
+  }
+  
+  &__temp-max {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+  }
+  
+  &__temp-min {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+  }
+  
+  &--selected &__temp-min {
+    color: var(--text-primary);
+    opacity: 0.8;
+  }
+}

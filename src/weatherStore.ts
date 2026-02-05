@@ -1,6 +1,19 @@
 import Alpine from 'alpinejs';
 import { weatherService } from './weatherService';
 import type { WeatherData, Units } from './types';
+import { 
+  createButton, 
+  createInput, 
+  createSpinner,
+  createSearchBar,
+  createStatCard,
+  createDayCard,
+  createHourlyItem,
+  createCurrentWeatherCard,
+  createDailyForecast,
+  createHourlyForecast,
+  getWeatherIcon
+} from './components';
 
 export interface WeatherStore {
   weatherData: WeatherData | null;
@@ -23,6 +36,18 @@ export interface WeatherStore {
   formatTemperature(temp: number): string;
   formatWind(speed: number): string;
   formatPrecipitation(amount: number): string;
+  
+  // Component rendering methods
+  renderButton: typeof createButton;
+  renderInput: typeof createInput;
+  renderSpinner: typeof createSpinner;
+  renderSearchBar: typeof createSearchBar;
+  renderStatCard: typeof createStatCard;
+  renderDayCard: typeof createDayCard;
+  renderHourlyItem: typeof createHourlyItem;
+  renderCurrentWeatherCard: typeof createCurrentWeatherCard;
+  renderDailyForecast: typeof createDailyForecast;
+  renderHourlyForecast: typeof createHourlyForecast;
 }
 
 export function createWeatherStore(): WeatherStore {
@@ -135,7 +160,19 @@ export function createWeatherStore(): WeatherStore {
     formatPrecipitation(amount: number): string {
       const unit = this.units === 'metric' ? 'mm' : 'in';
       return `${amount} ${unit}`;
-    }
+    },
+
+    // Component rendering methods
+    renderButton: createButton,
+    renderInput: createInput,
+    renderSpinner: createSpinner,
+    renderSearchBar: createSearchBar,
+    renderStatCard: createStatCard,
+    renderDayCard: createDayCard,
+    renderHourlyItem: createHourlyItem,
+    renderCurrentWeatherCard: createCurrentWeatherCard,
+    renderDailyForecast: createDailyForecast,
+    renderHourlyForecast: createHourlyForecast
   };
 }
 

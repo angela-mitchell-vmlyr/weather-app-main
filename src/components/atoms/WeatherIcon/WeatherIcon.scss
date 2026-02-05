@@ -1,0 +1,27 @@
+.weather-icon {
+  display: inline-block;
+  
+  &--small {
+    font-size: var(--weather-icon-size-small);
+  }
+  
+  &--medium {
+    font-size: var(--weather-icon-size-medium);
+  }
+  
+  &--large {
+    font-size: var(--weather-icon-size-large);
+  }
+  
+  &--xlarge {
+    font-size: var(--weather-icon-size-xlarge);
+  }
+  
+  &--day {
+    filter: brightness(1.1);
+  }
+  
+  &--night {
+    filter: brightness(0.8);
+  }
+}

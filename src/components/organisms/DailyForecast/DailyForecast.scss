@@ -1,0 +1,23 @@
+.daily-forecast {
+  background: var(--daily-forecast-bg);
+  border-radius: var(--daily-forecast-radius);
+  padding: var(--daily-forecast-padding);
+  
+  &__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    margin-bottom: var(--daily-forecast-gap);
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--daily-forecast-gap);
+    
+    @media (min-width: 48rem) {
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+}

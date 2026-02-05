@@ -5,201 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Weather Now</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=DM+Sans:ital,wght@0,300;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./index.css">
   <script type="module" src="./src/main.ts"></script>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 min-h-screen text-white font-sans">
+<body>
   
-  <div x-data="weatherApp" x-init="init()" class="container mx-auto px-4 py-6 max-w-7xl">
+  <div x-data="weatherApp" x-init="init()" class="container">
     
-    <header class="flex justify-between items-center mb-8">
-      <div class="flex items-center gap-3">
-        <div class="text-4xl">☀️</div>
-        <h1 class="text-xl font-semibold">Weather Now</h1>
+    <header class="header">
+      <div class="header__brand">
+        <div class="header__icon">☀️</div>
+        <h1 class="header__title">Weather Now</h1>
       </div>
       
-      <button 
-        @click="toggleUnits()"
-        class="flex items-center gap-2 bg-slate-800/50 hover:bg-slate-700/50 px-4 py-2 rounded-lg transition-colors"
-        aria-label="Toggle units"
-      >
-        <span class="text-sm">⚙️ Units</span>
-      </button>
+      <div @click="toggleUnits()" x-html="renderButton({ text: '⚙️ Units', variant: 'secondary', disabled: false })"></div>
     </header>
 
     <div x-show="showUnitsModal" 
          x-cloak
          @click.away="showUnitsModal = false"
-         class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
-      <div class="bg-slate-800 rounded-2xl p-6 max-w-md w-full">
-        <h2 class="text-xl font-semibold mb-6">Units</h2>
+         class="modal-overlay">
+      <div class="modal-content">
+        <h2 class="modal-title">Units</h2>
         
-        <div class="space-y-6">
-          <div>
-            <h3 class="text-sm text-slate-400 mb-3">Temperature</h3>
-            <div class="space-y-2">
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="temp" :checked="units === 'metric'" @change="setUnits('metric')" class="w-4 h-4">
-                <span>Celsius (°C)</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="temp" :checked="units === 'imperial'" @change="setUnits('imperial')" class="w-4 h-4">
-                <span>Fahrenheit (°F)</span>
-              </label>
-            </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Temperature</h3>
+          <div class="modal-options">
+            <label class="modal-option">
+              <input type="radio" name="temp" :checked="units === 'metric'" @change="setUnits('metric')">
+              <span>Celsius (°C)</span>
+            </label>
+            <label class="modal-option">
+              <input type="radio" name="temp" :checked="units === 'imperial'" @change="setUnits('imperial')">
+              <span>Fahrenheit (°F)</span>
+            </label>
           </div>
+        </div>
 
-          <div>
-            <h3 class="text-sm text-slate-400 mb-3">Wind Speed</h3>
-            <div class="space-y-2">
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="wind" :checked="units === 'metric'" @change="setUnits('metric')" class="w-4 h-4">
-                <span>km/h</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="wind" :checked="units === 'imperial'" @change="setUnits('imperial')" class="w-4 h-4">
-                <span>mph</span>
-              </label>
-            </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Wind Speed</h3>
+          <div class="modal-options">
+            <label class="modal-option">
+              <input type="radio" name="wind" :checked="units === 'metric'" @change="setUnits('metric')">
+              <span>Kilometers per hour (km/h)</span>
+            </label>
+            <label class="modal-option">
+              <input type="radio" name="wind" :checked="units === 'imperial'" @change="setUnits('imperial')">
+              <span>Miles per hour (mph)</span>
+            </label>
           </div>
+        </div>
 
-          <div>
-            <h3 class="text-sm text-slate-400 mb-3">Precipitation</h3>
-            <div class="space-y-2">
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="precip" :checked="units === 'metric'" @change="setUnits('metric')" class="w-4 h-4">
-                <span>Millimeters (mm)</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input type="radio" name="precip" :checked="units === 'imperial'" @change="setUnits('imperial')" class="w-4 h-4">
-                <span>Inches (in)</span>
-              </label>
-            </div>
+        <div class="modal-section">
+          <h3 class="modal-section-title">Precipitation</h3>
+          <div class="modal-options">
+            <label class="modal-option">
+              <input type="radio" name="precip" :checked="units === 'metric'" @change="setUnits('metric')">
+              <span>Millimeters (mm)</span>
+            </label>
+            <label class="modal-option">
+              <input type="radio" name="precip" :checked="units === 'imperial'" @change="setUnits('imperial')">
+              <span>Inches (in)</span>
+            </label>
           </div>
         </div>
       </div>
     </div>
 
     <main>
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">How's the sky looking today?</h2>
+      <h2 class="main-title">How's the sky looking today?</h2>
 
-      <div class="max-w-2xl mx-auto mb-8">
-        <div class="flex gap-2">
-          <input 
-            type="text" 
-            x-model="searchQuery"
-            @keyup.enter="searchWeather()"
-            placeholder="Search for a place..."
-            class="flex-1 bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-          <button 
-            @click="searchWeather()"
-            :disabled="loading"
-            class="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-not-allowed px-6 py-3 rounded-lg font-medium transition-colors"
-          >
-            Search
-          </button>
-        </div>
-        
-        <div x-show="error" x-text="error" class="mt-2 text-red-400 text-sm"></div>
-      </div>
-
-      <div x-show="loading" class="text-center py-12">
-        <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-slate-600 border-t-blue-500"></div>
-      </div>
-
-      <div x-show="!loading && weatherData" x-cloak class="grid lg:grid-cols-3 gap-6">
-        
-        <div class="lg:col-span-2 space-y-6">
-          <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-8 relative overflow-hidden">
-            <div class="absolute top-8 right-8 text-6xl opacity-20">☀️</div>
-            <div class="absolute bottom-8 left-8 text-4xl opacity-10">☁️</div>
-            
-            <div class="relative z-10">
-              <h3 class="text-2xl font-semibold mb-1" x-text="weatherData?.location + ', ' + weatherData?.country"></h3>
-              <p class="text-blue-200 mb-8" x-text="weatherData?.date"></p>
-              
-              <div class="flex items-center justify-between">
-                <div class="text-7xl" x-text="getWeatherIcon(weatherData?.weatherCode)"></div>
-                <div class="text-8xl font-bold" x-text="formatTemperature(weatherData?.temperature)"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-slate-800/50 rounded-2xl p-6">
-              <div class="text-slate-400 text-sm mb-2">Feels Like</div>
-              <div class="text-3xl font-semibold" x-text="formatTemperature(weatherData?.feelsLike)"></div>
-            </div>
-            
-            <div class="bg-slate-800/50 rounded-2xl p-6">
-              <div class="text-slate-400 text-sm mb-2">Humidity</div>
-              <div class="text-3xl font-semibold" x-text="weatherData?.humidity + '%'"></div>
-            </div>
-            
-            <div class="bg-slate-800/50 rounded-2xl p-6">
-              <div class="text-slate-400 text-sm mb-2">Wind</div>
-              <div class="text-3xl font-semibold" x-text="formatWind(weatherData?.wind)"></div>
-            </div>
-            
-            <div class="bg-slate-800/50 rounded-2xl p-6">
-              <div class="text-slate-400 text-sm mb-2">Precipitation</div>
-              <div class="text-3xl font-semibold" x-text="formatPrecipitation(weatherData?.precipitation)"></div>
-            </div>
-          </div>
-
-          <div class="bg-slate-800/50 rounded-2xl p-6">
-            <h3 class="text-xl font-semibold mb-6">Daily forecast</h3>
-            <div class="grid grid-cols-2 md:grid-cols-7 gap-4">
-              <template x-for="(day, index) in weatherData?.dailyForecast" :key="index">
-                <button 
-                  @click="selectDay(index)"
-                  :class="selectedDay === index ? 'bg-blue-600' : 'bg-slate-700/50 hover:bg-slate-700'"
-                  class="rounded-xl p-4 transition-colors text-center"
-                >
-                  <div class="text-sm mb-2" x-text="day.day"></div>
-                  <div class="text-3xl mb-2" x-text="getWeatherIcon(day.weatherCode)"></div>
-                  <div class="text-lg font-semibold" x-text="formatTemperature(day.maxTemp)"></div>
-                  <div class="text-sm text-slate-400" x-text="formatTemperature(day.minTemp)"></div>
-                </button>
-              </template>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-slate-800/50 rounded-2xl p-6">
-          <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-semibold">Hourly forecast</h3>
-            <select 
-              x-model.number="selectedDay"
-              class="bg-slate-700 rounded-lg px-3 py-1 text-sm"
+      <div class="search-section">
+        <div class="search-bar">
+          <div class="search-bar__input-group">
+            <input 
+              type="text" 
+              x-model="searchQuery"
+              @keyup.enter="searchWeather()"
+              placeholder="Search for a place..."
+              class="search-bar__input"
+              :disabled="loading"
             >
-              <template x-for="(day, index) in weatherData?.dailyForecast" :key="index">
-                <option :value="index" x-text="day.day"></option>
-              </template>
-            </select>
+            <button 
+              @click="searchWeather()"
+              :disabled="loading"
+              class="search-bar__button"
+            >
+              Search
+            </button>
           </div>
-          
-          <div class="space-y-3 max-h-[600px] overflow-y-auto">
-            <template x-for="hour in getHourlyForecastForDay()" :key="hour.time">
-              <div class="flex items-center justify-between py-3 border-b border-slate-700/50">
-                <div class="flex items-center gap-3 flex-1">
-                  <div class="text-2xl" x-text="getWeatherIcon(hour.weatherCode)"></div>
-                  <span class="text-sm" x-text="hour.time"></span>
-                </div>
-                <div class="font-semibold" x-text="formatTemperature(hour.temperature)"></div>
-              </div>
+          <div x-show="error" x-text="error" class="search-bar__error"></div>
+        </div>
+      </div>
+
+      <div x-show="loading" x-html="renderSpinner({ size: 'large' })"></div>
+
+      <div x-show="!loading && weatherData" x-cloak class="weather-grid">
+        
+        <div class="weather-grid__main">
+          <div x-html="weatherData && renderCurrentWeatherCard({
+            location: weatherData.location,
+            country: weatherData.country,
+            date: weatherData.date,
+            temperature: formatTemperature(weatherData.temperature),
+            weatherCode: weatherData.weatherCode
+          })"></div>
+
+          <div class="stats-grid">
+            <div x-html="weatherData && renderStatCard({ label: 'Feels Like', value: formatTemperature(weatherData.feelsLike), variant: 'highlighted' })"></div>
+            <div x-html="weatherData && renderStatCard({ label: 'Humidity', value: weatherData.humidity + '%', variant: 'default' })"></div>
+            <div x-html="weatherData && renderStatCard({ label: 'Wind', value: formatWind(weatherData.wind), variant: 'default' })"></div>
+            <div x-html="weatherData && renderStatCard({ label: 'Precipitation', value: formatPrecipitation(weatherData.precipitation), variant: 'default' })"></div>
+          </div>
+
+          <div x-html="weatherData && renderDailyForecast({
+            days: weatherData.dailyForecast.map((day, index) => ({
+              day: day.day,
+              weatherCode: day.weatherCode,
+              maxTemp: formatTemperature(day.maxTemp),
+              minTemp: formatTemperature(day.minTemp),
+              isSelected: selectedDay === index
+            })),
+            selectedIndex: selectedDay
+          })"></div>
+          <template x-for="(day, index) in weatherData?.dailyForecast" :key="index">
+            <button @click="selectDay(index)" style="display: none;"></button>
+          </template>
+        </div>
+
+        <div class="weather-grid__sidebar">
+          <div x-html="weatherData && renderHourlyForecast({
+            hours: getHourlyForecastForDay().map(hour => ({
+              time: hour.time,
+              weatherCode: hour.weatherCode,
+              temperature: formatTemperature(hour.temperature)
+            })),
+            selectedDay: weatherData.dailyForecast[selectedDay]?.day || ''
+          })"></div>
+          <select x-model.number="selectedDay" style="display: none;">
+            <template x-for="(day, index) in weatherData?.dailyForecast" :key="index">
+              <option :value="index" x-text="day.day"></option>
             </template>
-          </div>
+          </select>
         </div>
       </div>
     </main>
 
-    <footer class="attribution mt-12 text-center text-slate-400">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" class="text-blue-400 hover:text-blue-300">Frontend Mentor</a>. 
-      Coded by <a href="#" class="text-blue-400 hover:text-blue-300">Your Name Here</a>.
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
+        Coded by <a href="#">Angela Mitchell</a>.
+      </div>
     </footer>
+
   </div>
 
   <style>

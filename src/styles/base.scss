@@ -1,0 +1,74 @@
+// Tier 1: Base Design Tokens (SCSS Variables)
+// These are the foundational values from the style guide
+
+// ============================================
+// COLORS
+// ============================================
+
+// Neutral Colors
+$neutral-900: hsl(243, 96%, 9%);
+$neutral-800: hsl(243, 27%, 20%);
+$neutral-700: hsl(243, 23%, 24%);
+$neutral-600: hsl(243, 23%, 30%);
+$neutral-300: hsl(240, 6%, 70%);
+$neutral-200: hsl(250, 6%, 84%);
+$neutral-0: hsl(0, 0%, 100%);
+
+// Orange Colors
+$orange-500: hsl(28, 100%, 52%);
+
+// Blue Colors
+$blue-500: hsl(233, 67%, 56%);
+$blue-700: hsl(248, 70%, 36%);
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+// Font Families
+$font-family-primary: 'DM Sans', sans-serif;
+$font-family-display: 'Bricolage Grotesque', sans-serif;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Base Font Size
+$font-size-base: 1.125rem; // 18px
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$breakpoint-mobile: 23.4375rem; // 375px
+$breakpoint-desktop: 90rem; // 1440px
+
+// ============================================
+// SPACING SCALE (relative units)
+// ============================================
+
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 1rem;     // 16px
+$spacing-md: 1.5rem;   // 24px
+$spacing-lg: 2rem;     // 32px
+$spacing-xl: 3rem;     // 48px
+$spacing-2xl: 4rem;    // 64px
+
+// ============================================
+// BORDER RADIUS
+// ============================================
+
+$radius-sm: 0.5rem;    // 8px
+$radius-md: 1rem;      // 16px
+$radius-lg: 1.5rem;    // 24px
+$radius-xl: 2rem;      // 32px
+
+// ============================================
+// TRANSITIONS
+// ============================================
+
+$transition-fast: 150ms ease-in-out;
+$transition-base: 200ms ease-in-out;
+$transition-slow: 300ms ease-in-out;

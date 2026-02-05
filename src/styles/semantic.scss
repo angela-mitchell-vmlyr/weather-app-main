@@ -1,0 +1,97 @@
+// Tier 2: Semantic Design Tokens (CSS Custom Properties)
+// These map base tokens to semantic purposes
+
+@import './base.scss';
+
+:root {
+  // ============================================
+  // BACKGROUND COLORS
+  // ============================================
+  
+  --background-primary: #{$neutral-900};
+  --background-secondary: #{$neutral-800};
+  --background-tertiary: #{$neutral-700};
+  --background-elevated: #{$neutral-600};
+  
+  // ============================================
+  // TEXT COLORS
+  // ============================================
+  
+  --text-primary: #{$neutral-0};
+  --text-secondary: #{$neutral-200};
+  --text-tertiary: #{$neutral-300};
+  --text-inverse: #{$neutral-900};
+  
+  // ============================================
+  // ACCENT COLORS
+  // ============================================
+  
+  --accent-primary: #{$blue-500};
+  --accent-primary-dark: #{$blue-700};
+  --accent-secondary: #{$orange-500};
+  
+  // ============================================
+  // INTERACTIVE STATES
+  // ============================================
+  
+  --interactive-default: #{$blue-500};
+  --interactive-hover: #{$blue-700};
+  --interactive-disabled: #{$neutral-600};
+  
+  // ============================================
+  // TYPOGRAPHY
+  // ============================================
+  
+  --font-primary: #{$font-family-primary};
+  --font-display: #{$font-family-display};
+  
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+  
+  --font-size-base: #{$font-size-base};
+  --font-size-sm: 0.875rem;   // 14px
+  --font-size-lg: 1.25rem;    // 20px
+  --font-size-xl: 1.5rem;     // 24px
+  --font-size-2xl: 2rem;      // 32px
+  --font-size-3xl: 2.5rem;    // 40px
+  --font-size-4xl: 3rem;      // 48px
+  --font-size-5xl: 4rem;      // 64px
+  
+  // ============================================
+  // SPACING
+  // ============================================
+  
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  
+  // ============================================
+  // BORDER RADIUS
+  // ============================================
+  
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  
+  // ============================================
+  // TRANSITIONS
+  // ============================================
+  
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+  
+  // ============================================
+  // SHADOWS
+  // ============================================
+  
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
