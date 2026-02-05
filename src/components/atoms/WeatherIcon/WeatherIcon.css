@@ -1,0 +1,21 @@
+.weather-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-icon--small {
+  font-size: var(--font-size-2xl);
+}
+
+.weather-icon--medium {
+  font-size: var(--font-size-4xl);
+}
+
+.weather-icon--large {
+  font-size: var(--font-size-6xl);
+}
+
+.weather-icon--xlarge {
+  font-size: var(--font-size-7xl);
+}

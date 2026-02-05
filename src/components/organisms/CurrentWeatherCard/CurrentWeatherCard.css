@@ -1,0 +1,62 @@
+.current-weather-card {
+  background: linear-gradient(
+    135deg,
+    var(--background-weather-card),
+    var(--background-weather-card-end)
+  );
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.current-weather-card__decoration {
+  position: absolute;
+  opacity: 0.2;
+}
+
+.current-weather-card__decoration--sun {
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
+  font-size: var(--font-size-6xl);
+}
+
+.current-weather-card__decoration--cloud {
+  bottom: var(--spacing-xl);
+  left: var(--spacing-xl);
+  font-size: var(--font-size-4xl);
+  opacity: 0.1;
+}
+
+.current-weather-card__content {
+  position: relative;
+  z-index: 10;
+}
+
+.current-weather-card__location {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+}
+
+.current-weather-card__date {
+  color: var(--text-accent);
+  margin-bottom: var(--spacing-xl);
+}
+
+.current-weather-card__weather {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-weather-card__icon {
+  font-size: var(--font-size-7xl);
+}
+
+.current-weather-card__temperature {
+  font-size: var(--font-size-8xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}

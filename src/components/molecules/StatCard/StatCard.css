@@ -1,0 +1,25 @@
+.stat-card {
+  background-color: var(--background-card);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+}
+
+.stat-card__label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-card__value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.stat-card--highlighted {
+  background: linear-gradient(
+    135deg,
+    var(--background-weather-card),
+    var(--background-weather-card-end)
+  );
+}
