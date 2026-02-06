@@ -139,61 +139,20 @@ Maps base tokens to semantic purposes. These are **CSS Custom Properties** (`--v
 ---
 
 ### Tier 3: Component-Specific Design Tokens (CSS Custom Properties)
-**File:** `src/styles/component.scss`
+**Location:** Co-located in each component's SCSS file (e.g. `src/components/atoms/Button/Button.scss`)
 
-Component-specific values that use semantic tokens. These are **CSS Custom Properties** tailored for each component.
+Component-specific values that use semantic tokens. Each component declares its own `:root` block with its CSS Custom Properties.
 
-#### Button Component
+#### Example: Button Component (`Button.scss`)
 ```scss
---button-bg-primary: var(--accent-primary);
---button-bg-primary-hover: var(--accent-primary-dark);
---button-bg-secondary: var(--background-tertiary);
---button-bg-secondary-hover: var(--background-elevated);
---button-bg-disabled: var(--interactive-disabled);
-
---button-text-primary: var(--text-primary);
---button-text-disabled: var(--text-tertiary);
-
---button-padding-x: var(--spacing-md);
---button-padding-y: var(--spacing-sm);
---button-radius: var(--radius-md);
-```
-
-#### Input Component
-```scss
---input-bg: var(--background-secondary);
---input-bg-disabled: var(--background-tertiary);
---input-border: var(--background-elevated);
---input-border-focus: var(--accent-primary);
-
---input-text: var(--text-primary);
---input-text-placeholder: var(--text-tertiary);
-
---input-padding-x: var(--spacing-md);
---input-padding-y: var(--spacing-sm);
---input-radius: var(--radius-md);
-```
-
-#### Stat Card Component
-```scss
---stat-card-bg: var(--background-secondary);
---stat-card-bg-highlighted: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
---stat-card-padding: var(--spacing-md);
---stat-card-radius: var(--radius-lg);
-
---stat-card-label-color: var(--text-tertiary);
---stat-card-label-size: var(--font-size-sm);
---stat-card-value-size: var(--font-size-2xl);
-```
-
-#### Current Weather Card Component
-```scss
---current-weather-bg: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
---current-weather-padding: var(--spacing-xl);
---current-weather-radius: var(--radius-xl);
-
---current-weather-date-color: rgba(255, 255, 255, 0.8);
---current-weather-temp-size: var(--font-size-5xl);
+:root {
+  --button-bg-primary: var(--accent-primary);
+  --button-bg-primary-hover: var(--accent-primary-dark);
+  --button-text-primary: var(--text-primary);
+  --button-padding-x: var(--spacing-md);
+  --button-padding-y: var(--spacing-sm);
+  --button-radius: var(--radius-md);
+}
 ```
 
 ---
@@ -272,29 +231,36 @@ Responsive design tested from 320px to large screens.
 
 ### Importing the Design System
 
-The design system is imported hierarchically in `src/main.ts`:
+The design system is imported via barrel files in `src/main.tsx`:
 
 ```typescript
-// Import SCSS design system (Tier 1, 2, 3)
-import './styles/component.scss';
+// Import SCSS design system (Tier 1 + 2)
+import './styles/semantic.scss';
+
+// Import component styles
+import './components/atoms/index.scss';
+import './components/molecules/index.scss';
+import './components/organisms/index.scss';
 ```
 
-Tier 3 automatically imports Tier 2, which imports Tier 1.
+`semantic.scss` uses `@use './base.scss' as *` to load Tier 1 variables.
 
 ### Using Design Tokens in Components
 
-Components use CSS Custom Properties from Tiers 2 and 3:
+Each component SCSS file declares its own Tier 3 variables in a `:root` block, then uses them in flat BEM selectors:
 
 ```scss
+:root {
+  --button-bg-primary: var(--accent-primary);
+  --button-padding-y: var(--spacing-sm);
+}
+
 .button {
   padding: var(--button-padding-y) var(--button-padding-x);
   background: var(--button-bg-primary);
-  color: var(--button-text-primary);
-  border-radius: var(--button-radius);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-semibold);
-  transition: var(--transition-base);
-  
+}
+
+.button--primary {
   &:hover {
     background: var(--button-bg-primary-hover);
   }
@@ -331,21 +297,27 @@ Easy to add new colors, spacing values, or component tokens following the same p
 ```
 src/
 ├── styles/
-│   ├── base.scss          # SCSS variables (base tokens)
-│   ├── semantic.scss      # CSS custom properties (semantic tokens)
-│   └── component.scss     # CSS custom properties (component tokens)
+│   ├── base.scss              # Tier 1: SCSS variables (base tokens)
+│   └── semantic.scss          # Tier 2: CSS custom properties (semantic tokens)
 ├── components/
 │   ├── atoms/
-│   │   ├── Button/
-│   │   │   └── Button.scss       # Uses Tier 3 tokens
-│   │   ├── Input/
-│   │   │   └── Input.scss        # Uses Tier 3 tokens
-│   │   └── ...
+│   │   ├── index.ts           # Barrel export (components)
+│   │   ├── index.scss         # Barrel import (styles)
+│   │   └── Button/
+│   │       ├── Button.tsx     # React component
+│   │       ├── Button.scss    # Styles + Tier 3 tokens (:root)
+│   │       ├── Button.test.tsx
+│   │       └── Button.stories.tsx
 │   ├── molecules/
+│   │   ├── index.ts
+│   │   ├── index.scss
 │   │   └── ...
 │   └── organisms/
+│       ├── index.ts
+│       ├── index.scss
 │       └── ...
-└── main.ts                        # Imports component.scss
+├── components.ts              # Top-level barrel (re-exports all)
+└── main.tsx                   # Entry point, imports semantic.scss + barrel SCSS
 ```
 
 ---

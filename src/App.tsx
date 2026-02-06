@@ -1,14 +1,15 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { weatherService } from './weatherService';
 import type { WeatherData, Units } from './types';
-import { Header } from './components/organisms/Header/Header';
-import { SearchBar } from './components/molecules/SearchBar/SearchBar';
-import { CurrentWeatherCard } from './components/organisms/CurrentWeatherCard/CurrentWeatherCard';
-import { StatCard } from './components/molecules/StatCard/StatCard';
-import { DailyForecast } from './components/organisms/DailyForecast/DailyForecast';
-import { HourlyForecast } from './components/organisms/HourlyForecast/HourlyForecast';
-import { WeatherSkeleton } from './components/organisms/WeatherSkeleton/WeatherSkeleton';
-import { ErrorState } from './components/organisms/ErrorState/ErrorState';
+import { SearchBar, StatCard } from './components/molecules';
+import {
+  Header,
+  CurrentWeatherCard,
+  DailyForecast,
+  HourlyForecast,
+  WeatherSkeleton,
+  ErrorState,
+} from './components/organisms';
 
 type ErrorType = 'not-found' | 'api-error' | null;
 

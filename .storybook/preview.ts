@@ -1,20 +1,8 @@
 import type { Preview } from '@storybook/react';
-import '../src/styles/component.scss';
-import '../src/components/atoms/Button/Button.scss';
-import '../src/components/atoms/Input/Input.scss';
-import '../src/components/atoms/WeatherIcon/WeatherIcon.scss';
-import '../src/components/atoms/Spinner/Spinner.scss';
-import '../src/components/molecules/SearchBar/SearchBar.scss';
-import '../src/components/molecules/StatCard/StatCard.scss';
-import '../src/components/molecules/DayCard/DayCard.scss';
-import '../src/components/molecules/HourlyItem/HourlyItem.scss';
-import '../src/components/molecules/Dropdown/Dropdown.scss';
-import '../src/components/organisms/CurrentWeatherCard/CurrentWeatherCard.scss';
-import '../src/components/organisms/DailyForecast/DailyForecast.scss';
-import '../src/components/organisms/HourlyForecast/HourlyForecast.scss';
-import '../src/components/organisms/Header/Header.scss';
-import '../src/components/molecules/Skeleton/Skeleton.scss';
-import '../src/components/organisms/ErrorState/ErrorState.scss';
+import '../src/styles/semantic.scss';
+import '../src/components/atoms/index.scss';
+import '../src/components/molecules/index.scss';
+import '../src/components/organisms/index.scss';
 import '../index.css';
 
 const preview: Preview = {
