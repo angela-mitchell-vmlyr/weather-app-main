@@ -1,3 +1,12 @@
+:root {
+  --day-card-bg: var(--background-tertiary);
+  --day-card-bg-hover: var(--background-elevated);
+  --day-card-bg-selected: var(--accent-primary);
+
+  --day-card-padding: var(--spacing-md);
+  --day-card-radius: var(--radius-lg);
+}
+
 .day-card {
   display: flex;
   flex-direction: column;
@@ -11,37 +20,37 @@
   font-family: var(--font-primary);
   cursor: pointer;
   transition: var(--transition-base);
-  
+
   &:hover {
     background: var(--day-card-bg-hover);
   }
-  
-  &--selected {
-    background: var(--day-card-bg-selected);
-  }
-  
-  &__day {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-  }
-  
-  &__icon {
-    font-size: var(--font-size-3xl);
-  }
-  
-  &__temp-max {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    font-family: var(--font-display);
-  }
-  
-  &__temp-min {
-    font-size: var(--font-size-sm);
-    color: var(--text-tertiary);
-  }
-  
-  &--selected &__temp-min {
-    color: var(--text-primary);
-    opacity: 0.8;
-  }
+}
+
+.day-card--selected {
+  background: var(--day-card-bg-selected);
+}
+
+.day-card__day {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.day-card__icon {
+  font-size: var(--font-size-3xl);
+}
+
+.day-card__temp-max {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-display);
+}
+
+.day-card__temp-min {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+.day-card--selected .day-card__temp-min {
+  color: var(--text-primary);
+  opacity: 0.8;
 }

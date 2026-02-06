@@ -1,27 +1,35 @@
+:root {
+  --spinner-border-color: var(--background-elevated);
+  --spinner-border-active: var(--accent-primary);
+  --spinner-size-small: 1.5rem;
+  --spinner-size-medium: 2rem;
+  --spinner-size-large: 3rem;
+}
+
 .spinner {
   display: inline-block;
   border: 0.25rem solid var(--spinner-border-color);
   border-top-color: var(--spinner-border-active);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  
-  &--small {
-    width: var(--spinner-size-small);
-    height: var(--spinner-size-small);
-    border-width: 0.125rem;
-  }
-  
-  &--medium {
-    width: var(--spinner-size-medium);
-    height: var(--spinner-size-medium);
-    border-width: 0.25rem;
-  }
-  
-  &--large {
-    width: var(--spinner-size-large);
-    height: var(--spinner-size-large);
-    border-width: 0.3125rem;
-  }
+}
+
+.spinner--small {
+  width: var(--spinner-size-small);
+  height: var(--spinner-size-small);
+  border-width: 0.125rem;
+}
+
+.spinner--medium {
+  width: var(--spinner-size-medium);
+  height: var(--spinner-size-medium);
+  border-width: 0.25rem;
+}
+
+.spinner--large {
+  width: var(--spinner-size-large);
+  height: var(--spinner-size-large);
+  border-width: 0.3125rem;
 }
 
 @keyframes spin {

@@ -1,62 +1,71 @@
+:root {
+  --current-weather-bg: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
+  --current-weather-padding: var(--spacing-xl);
+  --current-weather-radius: var(--radius-xl);
+
+  --current-weather-date-color: rgba(255, 255, 255, 0.8);
+  --current-weather-temp-size: var(--font-size-5xl);
+}
+
 .current-weather-card {
   position: relative;
   background: var(--current-weather-bg);
   border-radius: var(--current-weather-radius);
   padding: var(--current-weather-padding);
   overflow: hidden;
-  
-  &__decoration {
-    position: absolute;
-    font-size: 4rem;
-    opacity: 0.2;
-    
-    &--sun {
-      top: 2rem;
-      right: 2rem;
-    }
-    
-    &--cloud {
-      bottom: 2rem;
-      left: 2rem;
-      font-size: 2.5rem;
-      opacity: 0.1;
-    }
-  }
-  
-  &__content {
-    position: relative;
-    z-index: 10;
-  }
-  
-  &__location {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-semibold);
-    font-family: var(--font-primary);
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-xs);
-  }
-  
-  &__date {
-    font-size: var(--font-size-base);
-    font-family: var(--font-primary);
-    color: var(--current-weather-date-color);
-    margin-bottom: var(--spacing-2xl);
-  }
-  
-  &__weather {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  &__icon {
-    font-size: 4rem;
-  }
-  
-  &__temperature {
-    font-size: var(--current-weather-temp-size);
-    font-weight: var(--font-weight-bold);
-    font-family: var(--font-display);
-    color: var(--text-primary);
-  }
+}
+
+.current-weather-card__decoration {
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0.2;
+}
+
+.current-weather-card__decoration--sun {
+  top: 2rem;
+  right: 2rem;
+}
+
+.current-weather-card__decoration--cloud {
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 2.5rem;
+  opacity: 0.1;
+}
+
+.current-weather-card__content {
+  position: relative;
+  z-index: 10;
+}
+
+.current-weather-card__location {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.current-weather-card__date {
+  font-size: var(--font-size-base);
+  font-family: var(--font-primary);
+  color: var(--current-weather-date-color);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.current-weather-card__weather {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-weather-card__icon {
+  font-size: 4rem;
+}
+
+.current-weather-card__temperature {
+  font-size: var(--current-weather-temp-size);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-display);
+  color: var(--text-primary);
 }

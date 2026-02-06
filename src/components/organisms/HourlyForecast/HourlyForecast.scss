@@ -1,3 +1,10 @@
+:root {
+  --hourly-forecast-bg: var(--background-secondary);
+  --hourly-forecast-padding: var(--spacing-md);
+  --hourly-forecast-radius: var(--radius-lg);
+  --hourly-forecast-max-height: 37.5rem;
+}
+
 .hourly-forecast {
   background: var(--hourly-forecast-bg);
   border-radius: var(--hourly-forecast-radius);

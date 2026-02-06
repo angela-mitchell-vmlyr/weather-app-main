@@ -7,11 +7,13 @@ trigger: always_on
 - Use aria labels and roles only if an element requires and supports it to communicate its purpose for accessibility
 - Use header, footer, and main elements to define the structure of the page
 
-# CSS Guidelines
+# CSS/SCSS Guidelines
 - Use the BEM naming convention for classes (e.g. .block__element--modifier)
-- Keep main BEM selectors on first level to avoid nesting and high specificity
+- Keep main BEM selectors on first level to avoid nesting more than 2 levels and high specificity
 - Use 3-tier token model for variables and put each tier collection in its own file(e.g. $blue-500, var(--primary-color-500), var(--background-primary))
 - Use relative units (esp.for dimensions and spacing) (e.g. rem, em, %) and avoid absolute units (e.g. px)
+- Store component variables in the component's directory
+- Use `@use` to import SCSS files and `@forward` to re-export SCSS files
 
 # JavaScript Framework Guidlines
 - Create atomic components using the atomic design pattern (atoms, molecules, organisms, templates, and pages) for reusability

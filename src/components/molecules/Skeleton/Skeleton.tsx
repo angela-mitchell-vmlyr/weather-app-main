@@ -1,0 +1,18 @@
+export interface SkeletonProps {
+  width?: string;
+  height?: string;
+  borderRadius?: string;
+}
+
+export function Skeleton({
+  width = '100%',
+  height = '1rem',
+  borderRadius = 'var(--radius-md)',
+}: SkeletonProps) {
+  return (
+    <div
+      className="skeleton"
+      style={{ width, height, borderRadius }}
+    />
+  );
+}

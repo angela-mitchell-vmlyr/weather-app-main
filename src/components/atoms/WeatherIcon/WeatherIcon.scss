@@ -1,27 +1,34 @@
+:root {
+  --weather-icon-size-small: 1.5rem;
+  --weather-icon-size-medium: 2rem;
+  --weather-icon-size-large: 3rem;
+  --weather-icon-size-xlarge: 4rem;
+}
+
 .weather-icon {
   display: inline-block;
-  
-  &--small {
-    font-size: var(--weather-icon-size-small);
-  }
-  
-  &--medium {
-    font-size: var(--weather-icon-size-medium);
-  }
-  
-  &--large {
-    font-size: var(--weather-icon-size-large);
-  }
-  
-  &--xlarge {
-    font-size: var(--weather-icon-size-xlarge);
-  }
-  
-  &--day {
-    filter: brightness(1.1);
-  }
-  
-  &--night {
-    filter: brightness(0.8);
-  }
+}
+
+.weather-icon--small {
+  font-size: var(--weather-icon-size-small);
+}
+
+.weather-icon--medium {
+  font-size: var(--weather-icon-size-medium);
+}
+
+.weather-icon--large {
+  font-size: var(--weather-icon-size-large);
+}
+
+.weather-icon--xlarge {
+  font-size: var(--weather-icon-size-xlarge);
+}
+
+.weather-icon--day {
+  filter: brightness(1.1);
+}
+
+.weather-icon--night {
+  filter: brightness(0.8);
 }

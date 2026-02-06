@@ -1,3 +1,17 @@
+:root {
+  --input-bg: var(--background-secondary);
+  --input-bg-disabled: var(--background-tertiary);
+  --input-border: var(--background-elevated);
+  --input-border-focus: var(--accent-primary);
+
+  --input-text: var(--text-primary);
+  --input-text-placeholder: var(--text-tertiary);
+
+  --input-padding-x: var(--spacing-md);
+  --input-padding-y: var(--spacing-sm);
+  --input-radius: var(--radius-md);
+}
+
 .input {
   width: 100%;
   padding: var(--input-padding-y) var(--input-padding-x);
@@ -8,17 +22,17 @@
   font-size: var(--font-size-base);
   font-family: var(--font-primary);
   transition: var(--transition-base);
-  
+
   &::placeholder {
     color: var(--input-text-placeholder);
   }
-  
+
   &:focus {
     outline: none;
     border-color: var(--input-border-focus);
     box-shadow: 0 0 0 0.1875rem rgba(93, 109, 212, 0.2);
   }
-  
+
   &:disabled {
     background: var(--input-bg-disabled);
     cursor: not-allowed;

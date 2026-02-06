@@ -116,6 +116,27 @@ body {
   }
 }
 
+.search-section__status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--background-secondary);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.search-section__status-icon {
+  animation: spin-slow 2s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .attribution { 
   font-size: 0.6875rem; 
   text-align: center;
@@ -130,10 +151,6 @@ body {
 
 .attribution a:hover {
   color: var(--accent-primary-dark);
-}
-
-[x-cloak] {
-  display: none !important;
 }
 
 /* Modal Styles */

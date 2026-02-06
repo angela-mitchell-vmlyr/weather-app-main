@@ -1,7 +1,7 @@
 // Tier 2: Semantic Design Tokens (CSS Custom Properties)
 // These map base tokens to semantic purposes
 
-@import './base.scss';
+@use './base.scss' as *;
 
 :root {
   // ============================================

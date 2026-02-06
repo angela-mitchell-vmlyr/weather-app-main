@@ -3,20 +3,20 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-xl);
-  
-  &__brand {
-    display: flex;
-    align-items: center;
-  }
-  
-  &__logo {
-    height: 2.5rem;
-    width: auto;
-  }
-  
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  height: 2.5rem;
+  width: auto;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
 }
