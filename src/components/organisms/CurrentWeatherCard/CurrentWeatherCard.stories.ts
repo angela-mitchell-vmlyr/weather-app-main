@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createCurrentWeatherCard, CurrentWeatherCardProps } from './CurrentWeatherCard';
-import './CurrentWeatherCard.css';
+import './CurrentWeatherCard.scss';
 
 const meta: Meta<CurrentWeatherCardProps> = {
   title: 'Organisms/CurrentWeatherCard',

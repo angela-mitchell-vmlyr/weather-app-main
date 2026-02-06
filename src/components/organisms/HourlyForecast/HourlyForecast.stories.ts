@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createHourlyForecast, HourlyForecastProps } from './HourlyForecast';
-import './HourlyForecast.css';
+import './HourlyForecast.scss';
 
 const meta: Meta<HourlyForecastProps> = {
   title: 'Organisms/HourlyForecast',

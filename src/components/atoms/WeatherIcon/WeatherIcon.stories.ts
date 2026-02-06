@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createWeatherIcon, WeatherIconProps } from './WeatherIcon';
-import './WeatherIcon.css';
+import './WeatherIcon.scss';
 
 const meta: Meta<WeatherIconProps> = {
   title: 'Atoms/WeatherIcon',

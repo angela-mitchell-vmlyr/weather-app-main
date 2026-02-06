@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createHourlyItem, HourlyItemProps } from './HourlyItem';
-import './HourlyItem.css';
+import './HourlyItem.scss';
 
 const meta: Meta<HourlyItemProps> = {
   title: 'Molecules/HourlyItem',

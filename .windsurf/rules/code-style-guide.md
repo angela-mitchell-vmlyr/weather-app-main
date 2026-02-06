@@ -20,4 +20,4 @@ trigger: always_on
 - Import and render components in the main application's template file (ex. index.html, main.tsx)
 
 # JavaScript and TypeScript Guidelines
-- Use ES6+ features for modern JavaScript
+- Use ES6+ features for modern JavaScript and TypeScript

@@ -73,10 +73,22 @@ body {
   gap: 1.5rem;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .weather-grid {
     grid-template-columns: 1fr 22.5rem;
     gap: 2rem;
+  }
+}
+
+@media (min-width: 64rem) and (max-width: 79.9375rem) {
+  .weather-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .weather-grid__sidebar {
+    max-width: 42rem;
+    margin: 0 auto;
   }
 }
 

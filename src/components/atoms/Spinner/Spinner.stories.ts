@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createSpinner, SpinnerProps } from './Spinner';
-import './Spinner.css';
+import './Spinner.scss';
 
 const meta: Meta<SpinnerProps> = {
   title: 'Atoms/Spinner',

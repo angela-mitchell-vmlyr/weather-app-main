@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createSearchBar, SearchBarProps } from './SearchBar';
-import './SearchBar.css';
+import './SearchBar.scss';
 
 const meta: Meta<SearchBarProps> = {
   title: 'Molecules/SearchBar',

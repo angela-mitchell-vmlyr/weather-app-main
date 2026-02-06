@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createDailyForecast, DailyForecastProps } from './DailyForecast';
-import './DailyForecast.css';
+import './DailyForecast.scss';
 
 const meta: Meta<DailyForecastProps> = {
   title: 'Organisms/DailyForecast',

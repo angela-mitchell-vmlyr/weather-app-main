@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createStatCard, StatCardProps } from './StatCard';
-import './StatCard.css';
+import './StatCard.scss';
 
 const meta: Meta<StatCardProps> = {
   title: 'Molecules/StatCard',

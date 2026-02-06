@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createButton, ButtonProps } from './Button';
-import './Button.css';
+import './Button.scss';
 
 const meta: Meta<ButtonProps> = {
   title: 'Atoms/Button',

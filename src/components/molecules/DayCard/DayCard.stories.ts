@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createDayCard, DayCardProps } from './DayCard';
-import './DayCard.css';
+import './DayCard.scss';
 
 const meta: Meta<DayCardProps> = {
   title: 'Molecules/DayCard',

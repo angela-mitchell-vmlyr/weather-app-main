@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/html-vite';
 import { createInput, InputProps } from './Input';
-import './Input.css';
+import './Input.scss';
 
 const meta: Meta<InputProps> = {
   title: 'Atoms/Input',

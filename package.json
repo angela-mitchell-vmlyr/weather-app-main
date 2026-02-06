@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@vitest/mocker": "^4.0.18",
     "alpinejs": "^3.14.3"
   },
   "devDependencies": {

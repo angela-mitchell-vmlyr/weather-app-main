@@ -1,127 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <title>Weather Now</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=DM+Sans:ital,wght@0,300;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./index.css">
-  <script type="module" src="./src/main.ts"></script>
-</head>
-<body>
-  
-  <div x-data="weatherApp" x-init="init()" class="container">
-    
-    <header class="header">
-      <div class="header__brand">
-        <div class="header__icon">☀️</div>
-        <h1 class="header__title">Weather Now</h1>
-      </div>
-      
-      <div @click="toggleUnits()" x-html="renderButton({ text: '⚙️ Units', variant: 'secondary', disabled: false })"></div>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Weather Now</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=DM+Sans:ital,wght@0,300;0,500;0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <script type="module" src="./src/main.ts"></script>
+  </head>
+  <body>
+    <div x-data="weatherApp" x-init="init()" class="container">
+      <div x-html="renderHeader({})"></div>
+      <main>
+        <h2 class="main-title">How's the sky looking today?</h2>
 
-    <div x-show="showUnitsModal" 
-         x-cloak
-         @click.away="showUnitsModal = false"
-         class="modal-overlay">
-      <div class="modal-content">
-        <h2 class="modal-title">Units</h2>
-        
-        <div class="modal-section">
-          <h3 class="modal-section-title">Temperature</h3>
-          <div class="modal-options">
-            <label class="modal-option">
-              <input type="radio" name="temp" :checked="units === 'metric'" @change="setUnits('metric')">
-              <span>Celsius (°C)</span>
-            </label>
-            <label class="modal-option">
-              <input type="radio" name="temp" :checked="units === 'imperial'" @change="setUnits('imperial')">
-              <span>Fahrenheit (°F)</span>
-            </label>
+        <div class="search-section">
+          <div class="search-bar">
+            <div class="search-bar__input-group">
+              <input
+                type="text"
+                x-model="searchQuery"
+                @keyup.enter="searchWeather()"
+                placeholder="Search for a place..."
+                class="search-bar__input"
+                :disabled="loading"
+              />
+              <button
+                @click="searchWeather()"
+                :disabled="loading"
+                class="search-bar__button"
+              >
+                Search
+              </button>
+            </div>
+            <div x-show="error" x-text="error" class="search-bar__error"></div>
           </div>
         </div>
 
-        <div class="modal-section">
-          <h3 class="modal-section-title">Wind Speed</h3>
-          <div class="modal-options">
-            <label class="modal-option">
-              <input type="radio" name="wind" :checked="units === 'metric'" @change="setUnits('metric')">
-              <span>Kilometers per hour (km/h)</span>
-            </label>
-            <label class="modal-option">
-              <input type="radio" name="wind" :checked="units === 'imperial'" @change="setUnits('imperial')">
-              <span>Miles per hour (mph)</span>
-            </label>
-          </div>
-        </div>
+        <div x-show="loading" x-html="renderSpinner({ size: 'large' })"></div>
 
-        <div class="modal-section">
-          <h3 class="modal-section-title">Precipitation</h3>
-          <div class="modal-options">
-            <label class="modal-option">
-              <input type="radio" name="precip" :checked="units === 'metric'" @change="setUnits('metric')">
-              <span>Millimeters (mm)</span>
-            </label>
-            <label class="modal-option">
-              <input type="radio" name="precip" :checked="units === 'imperial'" @change="setUnits('imperial')">
-              <span>Inches (in)</span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <main>
-      <h2 class="main-title">How's the sky looking today?</h2>
-
-      <div class="search-section">
-        <div class="search-bar">
-          <div class="search-bar__input-group">
-            <input 
-              type="text" 
-              x-model="searchQuery"
-              @keyup.enter="searchWeather()"
-              placeholder="Search for a place..."
-              class="search-bar__input"
-              :disabled="loading"
-            >
-            <button 
-              @click="searchWeather()"
-              :disabled="loading"
-              class="search-bar__button"
-            >
-              Search
-            </button>
-          </div>
-          <div x-show="error" x-text="error" class="search-bar__error"></div>
-        </div>
-      </div>
-
-      <div x-show="loading" x-html="renderSpinner({ size: 'large' })"></div>
-
-      <div x-show="!loading && weatherData" x-cloak class="weather-grid">
-        
-        <div class="weather-grid__main">
-          <div x-html="weatherData && renderCurrentWeatherCard({
+        <div x-show="!loading && weatherData" x-cloak class="weather-grid">
+          <div class="weather-grid__main">
+            <div
+              x-html="weatherData && renderCurrentWeatherCard({
             location: weatherData.location,
             country: weatherData.country,
             date: weatherData.date,
             temperature: formatTemperature(weatherData.temperature),
             weatherCode: weatherData.weatherCode
-          })"></div>
+          })"
+            ></div>
 
-          <div class="stats-grid">
-            <div x-html="weatherData && renderStatCard({ label: 'Feels Like', value: formatTemperature(weatherData.feelsLike), variant: 'highlighted' })"></div>
-            <div x-html="weatherData && renderStatCard({ label: 'Humidity', value: weatherData.humidity + '%', variant: 'default' })"></div>
-            <div x-html="weatherData && renderStatCard({ label: 'Wind', value: formatWind(weatherData.wind), variant: 'default' })"></div>
-            <div x-html="weatherData && renderStatCard({ label: 'Precipitation', value: formatPrecipitation(weatherData.precipitation), variant: 'default' })"></div>
-          </div>
+            <div class="stats-grid">
+              <div
+                x-html="weatherData && renderStatCard({ label: 'Feels Like', value: formatTemperature(weatherData.feelsLike), variant: 'highlighted' })"
+              ></div>
+              <div
+                x-html="weatherData && renderStatCard({ label: 'Humidity', value: weatherData.humidity + '%', variant: 'default' })"
+              ></div>
+              <div
+                x-html="weatherData && renderStatCard({ label: 'Wind', value: formatWind(weatherData.wind), variant: 'default' })"
+              ></div>
+              <div
+                x-html="weatherData && renderStatCard({ label: 'Precipitation', value: formatPrecipitation(weatherData.precipitation), variant: 'default' })"
+              ></div>
+            </div>
 
-          <div x-html="weatherData && renderDailyForecast({
+            <div
+              x-html="weatherData && renderDailyForecast({
             days: weatherData.dailyForecast.map((day, index) => ({
               day: day.day,
               weatherCode: day.weatherCode,
@@ -130,41 +87,56 @@
               isSelected: selectedDay === index
             })),
             selectedIndex: selectedDay
-          })"></div>
-          <template x-for="(day, index) in weatherData?.dailyForecast" :key="index">
-            <button @click="selectDay(index)" style="display: none;"></button>
-          </template>
-        </div>
+          })"
+            ></div>
+            <template
+              x-for="(day, index) in weatherData?.dailyForecast"
+              :key="index"
+            >
+              <button @click="selectDay(index)" style="display: none"></button>
+            </template>
+          </div>
 
-        <div class="weather-grid__sidebar">
-          <div x-html="weatherData && renderHourlyForecast({
+          <div class="weather-grid__sidebar">
+            <div
+              x-html="weatherData && renderHourlyForecast({
             hours: getHourlyForecastForDay().map(hour => ({
               time: hour.time,
               weatherCode: hour.weatherCode,
               temperature: formatTemperature(hour.temperature)
             })),
             selectedDay: weatherData.dailyForecast[selectedDay]?.day || ''
-          })"></div>
-          <select x-model.number="selectedDay" style="display: none;">
-            <template x-for="(day, index) in weatherData?.dailyForecast" :key="index">
-              <option :value="index" x-text="day.day"></option>
-            </template>
-          </select>
+          })"
+            ></div>
+            <select x-model.number="selectedDay" style="display: none">
+              <template
+                x-for="(day, index) in weatherData?.dailyForecast"
+                :key="index"
+              >
+                <option :value="index" x-text="day.day"></option>
+              </template>
+            </select>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
 
-    <footer>
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
-        Coded by <a href="#">Angela Mitchell</a>.
-      </div>
-    </footer>
+      <footer>
+        <div class="attribution">
+          Challenge by
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Angela Mitchell</a>.
+        </div>
+      </footer>
+    </div>
 
-  </div>
-
-  <style>
-    [x-cloak] { display: none !important; }
-  </style>
-</body>
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </body>
 </html>

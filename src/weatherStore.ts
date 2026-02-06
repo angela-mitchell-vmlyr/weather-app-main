@@ -1,17 +1,20 @@
 import Alpine from 'alpinejs';
 import { weatherService } from './weatherService';
 import type { WeatherData, Units } from './types';
-import { 
-  createButton, 
-  createInput, 
-  createSpinner,
+import {
+  createButton,
+  createInput,
   createSearchBar,
   createStatCard,
   createDayCard,
   createHourlyItem,
+  createWeatherIcon,
+  createSpinner,
   createCurrentWeatherCard,
   createDailyForecast,
   createHourlyForecast,
+  createHeader,
+  createDropdown,
   getWeatherIcon
 } from './components';
 
@@ -48,6 +51,8 @@ export interface WeatherStore {
   renderCurrentWeatherCard: typeof createCurrentWeatherCard;
   renderDailyForecast: typeof createDailyForecast;
   renderHourlyForecast: typeof createHourlyForecast;
+  renderHeader: typeof createHeader;
+  renderDropdown: typeof createDropdown;
 }
 
 export function createWeatherStore(): WeatherStore {
@@ -172,7 +177,9 @@ export function createWeatherStore(): WeatherStore {
     renderHourlyItem: createHourlyItem,
     renderCurrentWeatherCard: createCurrentWeatherCard,
     renderDailyForecast: createDailyForecast,
-    renderHourlyForecast: createHourlyForecast
+    renderHourlyForecast: createHourlyForecast,
+    renderHeader: createHeader,
+    renderDropdown: createDropdown
   };
 }
 
