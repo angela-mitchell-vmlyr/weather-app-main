@@ -1,12 +1,12 @@
 :root {
   --stat-card-bg: var(--background-secondary);
   --stat-card-bg-highlighted: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
-  --stat-card-padding: var(--spacing-md);
-  --stat-card-radius: var(--radius-lg);
+  --stat-card-padding: var(--spacing-24);
+  --stat-card-radius: var(--radius-24);
 
   --stat-card-label-color: var(--text-tertiary);
-  --stat-card-label-size: var(--font-size-sm);
-  --stat-card-value-size: var(--font-size-2xl);
+  --stat-card-label-size: 0.875rem;
+  --stat-card-value-size: 2rem;
 }
 
 .stat-card {
@@ -24,7 +24,7 @@
   font-size: var(--stat-card-label-size);
   font-family: var(--font-primary);
   font-weight: var(--font-weight-medium);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-8);
 }
 
 .stat-card__value {

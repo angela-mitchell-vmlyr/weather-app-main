@@ -18,16 +18,62 @@ type Story = StoryObj<typeof SearchBar>;
 
 export const Default: Story = {
   args: { placeholder: 'Search for a place...', value: '', loading: false },
+  parameters: {
+    docs: {
+      source: {
+        code: `<SearchBar
+  value={query}
+  onChange={(e) => setQuery(e.target.value)}
+  onSearch={handleSearch}
+/>`,
+      },
+    },
+  },
 };
 
 export const WithValue: Story = {
   args: { placeholder: 'Search for a place...', value: 'Berlin' },
+  parameters: {
+    docs: {
+      source: {
+        code: `<SearchBar
+  value="Berlin"
+  onChange={(e) => setQuery(e.target.value)}
+  onSearch={handleSearch}
+/>`,
+      },
+    },
+  },
 };
 
 export const Loading: Story = {
   args: { placeholder: 'Search for a place...', value: 'Berlin', loading: true },
+  parameters: {
+    docs: {
+      source: {
+        code: `<SearchBar
+  value="Berlin"
+  loading
+  onChange={(e) => setQuery(e.target.value)}
+  onSearch={handleSearch}
+/>`,
+      },
+    },
+  },
 };
 
 export const WithError: Story = {
   args: { placeholder: 'Search for a place...', value: '', error: 'No search result found!' },
+  parameters: {
+    docs: {
+      source: {
+        code: `<SearchBar
+  value=""
+  error="No search result found!"
+  onChange={(e) => setQuery(e.target.value)}
+  onSearch={handleSearch}
+/>`,
+      },
+    },
+  },
 };

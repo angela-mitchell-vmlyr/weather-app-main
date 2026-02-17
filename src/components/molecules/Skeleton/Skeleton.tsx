@@ -7,7 +7,7 @@ export interface SkeletonProps {
 export function Skeleton({
   width = '100%',
   height = '1rem',
-  borderRadius = 'var(--radius-md)',
+  borderRadius = 'var(--radius-16)',
 }: SkeletonProps) {
   return (
     <div

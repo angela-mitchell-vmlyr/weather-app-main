@@ -25,6 +25,19 @@ export const ClearDay: Story = {
     temperature: '20°',
     weatherCode: 0,
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CurrentWeatherCard
+  location="Berlin"
+  country="Germany"
+  date="Tuesday, Aug 5, 2025"
+  temperature="20°"
+  weatherCode={0}
+/>`,
+      },
+    },
+  },
 };
 
 export const Rainy: Story = {
@@ -34,5 +47,18 @@ export const Rainy: Story = {
     date: 'Wednesday, Aug 6, 2025',
     temperature: '15°',
     weatherCode: 61,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<CurrentWeatherCard
+  location="London"
+  country="United Kingdom"
+  date="Wednesday, Aug 6, 2025"
+  temperature="15°"
+  weatherCode={61}
+/>`,
+      },
+    },
   },
 };

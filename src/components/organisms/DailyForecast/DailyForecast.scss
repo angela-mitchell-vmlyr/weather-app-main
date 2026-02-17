@@ -1,8 +1,8 @@
 :root {
   --daily-forecast-bg: var(--background-secondary);
-  --daily-forecast-padding: var(--spacing-md);
-  --daily-forecast-radius: var(--radius-lg);
-  --daily-forecast-gap: var(--spacing-md);
+  --daily-forecast-padding: var(--spacing-24);
+  --daily-forecast-radius: var(--radius-24);
+  --daily-forecast-gap: var(--spacing-24);
 }
 
 .daily-forecast {
@@ -12,7 +12,7 @@
 }
 
 .daily-forecast__title {
-  font-size: var(--font-size-xl);
+  font-size: 1.5rem;
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-primary);
   color: var(--text-primary);

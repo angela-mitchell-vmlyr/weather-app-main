@@ -54,22 +54,22 @@ $breakpoint-mobile: 23.4375rem;  // 375px
 $breakpoint-desktop: 90rem;      // 1440px
 ```
 
-#### Spacing (Relative Units)
+#### Spacing (Pixel-Reference Naming)
 ```scss
-$spacing-xs: 0.5rem;   // 8px
-$spacing-sm: 1rem;     // 16px
-$spacing-md: 1.5rem;   // 24px
-$spacing-lg: 2rem;     // 32px
-$spacing-xl: 3rem;     // 48px
-$spacing-2xl: 4rem;    // 64px
+$spacing-8: 0.5rem;    // 8px
+$spacing-16: 1rem;     // 16px
+$spacing-24: 1.5rem;   // 24px
+$spacing-32: 2rem;     // 32px
+$spacing-48: 3rem;     // 48px
+$spacing-64: 4rem;     // 64px
 ```
 
-#### Border Radius
+#### Border Radius (Pixel-Reference Naming)
 ```scss
-$radius-sm: 0.5rem;    // 8px
-$radius-md: 1rem;      // 16px
-$radius-lg: 1.5rem;    // 24px
-$radius-xl: 2rem;      // 32px
+$radius-8: 0.5rem;     // 8px
+$radius-16: 1rem;      // 16px
+$radius-24: 1.5rem;    // 24px
+$radius-32: 2rem;      // 32px
 ```
 
 #### Transitions
@@ -126,14 +126,9 @@ Maps base tokens to semantic purposes. These are **CSS Custom Properties** (`--v
 --font-weight-semibold: #{$font-weight-semibold};
 --font-weight-bold: #{$font-weight-bold};
 
+--font-style-italic: #{$font-style-italic};
+
 --font-size-base: #{$font-size-base};
---font-size-sm: 0.875rem;   // 14px
---font-size-lg: 1.25rem;    // 20px
---font-size-xl: 1.5rem;     // 24px
---font-size-2xl: 2rem;      // 32px
---font-size-3xl: 2.5rem;    // 40px
---font-size-4xl: 3rem;      // 48px
---font-size-5xl: 4rem;      // 64px
 ```
 
 ---
@@ -149,9 +144,9 @@ Component-specific values that use semantic tokens. Each component declares its 
   --button-bg-primary: var(--accent-primary);
   --button-bg-primary-hover: var(--accent-primary-dark);
   --button-text-primary: var(--text-primary);
-  --button-padding-x: var(--spacing-md);
-  --button-padding-y: var(--spacing-sm);
-  --button-radius: var(--radius-md);
+  --button-padding-x: var(--spacing-24);
+  --button-padding-y: var(--spacing-16);
+  --button-radius: var(--radius-16);
 }
 ```
 
@@ -252,7 +247,7 @@ Each component SCSS file declares its own Tier 3 variables in a `:root` block, t
 ```scss
 :root {
   --button-bg-primary: var(--accent-primary);
-  --button-padding-y: var(--spacing-sm);
+  --button-padding-y: var(--spacing-16);
 }
 
 .button {

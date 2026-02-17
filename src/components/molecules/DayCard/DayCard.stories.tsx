@@ -19,12 +19,33 @@ type Story = StoryObj<typeof DayCard>;
 
 export const Default: Story = {
   args: { day: 'Tue', weatherCode: 2, maxTemp: '20°', minTemp: '14°' },
+  parameters: {
+    docs: {
+      source: {
+        code: `<DayCard day="Tue" weatherCode={2} maxTemp="20°" minTemp="14°" onClick={() => setSelectedDay(0)} />`,
+      },
+    },
+  },
 };
 
 export const Selected: Story = {
   args: { day: 'Wed', weatherCode: 0, maxTemp: '24°', minTemp: '15°', isSelected: true },
+  parameters: {
+    docs: {
+      source: {
+        code: `<DayCard day="Wed" weatherCode={0} maxTemp="24°" minTemp="15°" isSelected onClick={() => setSelectedDay(1)} />`,
+      },
+    },
+  },
 };
 
 export const Rainy: Story = {
   args: { day: 'Fri', weatherCode: 61, maxTemp: '21°', minTemp: '13°' },
+  parameters: {
+    docs: {
+      source: {
+        code: `<DayCard day="Fri" weatherCode={61} maxTemp="21°" minTemp="13°" onClick={() => setSelectedDay(2)} />`,
+      },
+    },
+  },
 };

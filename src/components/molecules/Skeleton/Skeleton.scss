@@ -14,21 +14,21 @@
 }
 
 .skeleton-weather-card {
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-xl);
+  border-radius: var(--radius-32);
+  padding: var(--spacing-48);
   background: var(--background-tertiary);
   min-height: 16rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-16);
   animation: skeleton-pulse 1.5s ease-in-out infinite;
 }
 
 .skeleton-weather-card__dots {
   display: flex;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-8);
 }
 
 .skeleton-weather-card__dot {
@@ -41,5 +41,5 @@
 
 .skeleton-weather-card__text {
   color: var(--text-tertiary);
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
 }

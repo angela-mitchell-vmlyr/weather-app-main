@@ -1,6 +1,6 @@
 :root {
   --hourly-item-border: var(--background-elevated);
-  --hourly-item-padding-y: var(--spacing-sm);
+  --hourly-item-padding-y: var(--spacing-16);
 }
 
 .hourly-item {
@@ -18,22 +18,22 @@
 .hourly-item__info {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-16);
   flex: 1;
 }
 
 .hourly-item__icon {
-  font-size: var(--font-size-2xl);
+  font-size: 2rem;
 }
 
 .hourly-item__time {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   font-family: var(--font-primary);
   color: var(--text-secondary);
 }
 
 .hourly-item__temp {
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-display);
   color: var(--text-primary);

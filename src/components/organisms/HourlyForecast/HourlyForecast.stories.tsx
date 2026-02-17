@@ -24,4 +24,11 @@ export const Default: Story = {
       { time: '10 PM', weatherCode: 3, temperature: '17°' },
     ],
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<HourlyForecast selectedDay="Tuesday" hours={hourlyData} />`,
+      },
+    },
+  },
 };

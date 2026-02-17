@@ -17,12 +17,27 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Default: Story = {
   args: { width: '100%', height: '1rem' },
+  parameters: {
+    docs: {
+      source: { code: `<Skeleton width="100%" height="1rem" />` },
+    },
+  },
 };
 
 export const Card: Story = {
-  args: { width: '100%', height: '8rem', borderRadius: 'var(--radius-lg)' },
+  args: { width: '100%', height: '8rem', borderRadius: 'var(--radius-24)' },
+  parameters: {
+    docs: {
+      source: { code: `<Skeleton width="100%" height="8rem" borderRadius="var(--radius-24)" />` },
+    },
+  },
 };
 
 export const Circle: Story = {
   args: { width: '3rem', height: '3rem', borderRadius: '50%' },
+  parameters: {
+    docs: {
+      source: { code: `<Skeleton width="3rem" height="3rem" borderRadius="50%" />` },
+    },
+  },
 };

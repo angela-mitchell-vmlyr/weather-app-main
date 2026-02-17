@@ -50,34 +50,29 @@
   --font-weight-semibold: #{$font-weight-semibold};
   --font-weight-bold: #{$font-weight-bold};
   
+  --font-style-italic: #{$font-style-italic};
+  
   --font-size-base: #{$font-size-base};
-  --font-size-sm: 0.875rem;   // 14px
-  --font-size-lg: 1.25rem;    // 20px
-  --font-size-xl: 1.5rem;     // 24px
-  --font-size-2xl: 2rem;      // 32px
-  --font-size-3xl: 2.5rem;    // 40px
-  --font-size-4xl: 3rem;      // 48px
-  --font-size-5xl: 4rem;      // 64px
   
   // ============================================
   // SPACING
   // ============================================
   
-  --spacing-xs: #{$spacing-xs};
-  --spacing-sm: #{$spacing-sm};
-  --spacing-md: #{$spacing-md};
-  --spacing-lg: #{$spacing-lg};
-  --spacing-xl: #{$spacing-xl};
-  --spacing-2xl: #{$spacing-2xl};
+  --spacing-8: #{$spacing-8};
+  --spacing-16: #{$spacing-16};
+  --spacing-24: #{$spacing-24};
+  --spacing-32: #{$spacing-32};
+  --spacing-48: #{$spacing-48};
+  --spacing-64: #{$spacing-64};
   
   // ============================================
   // BORDER RADIUS
   // ============================================
   
-  --radius-sm: #{$radius-sm};
-  --radius-md: #{$radius-md};
-  --radius-lg: #{$radius-lg};
-  --radius-xl: #{$radius-xl};
+  --radius-8: #{$radius-8};
+  --radius-16: #{$radius-16};
+  --radius-24: #{$radius-24};
+  --radius-32: #{$radius-32};
   
   // ============================================
   // TRANSITIONS

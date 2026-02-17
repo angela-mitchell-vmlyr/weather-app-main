@@ -15,16 +15,38 @@ type Story = StoryObj<typeof ErrorState>;
 
 export const Default: Story = {
   args: {},
+  parameters: {
+    docs: {
+      source: { code: `<ErrorState onRetry={() => refetch()} />` },
+    },
+  },
 };
 
 export const CustomMessage: Story = {
   args: {
     message: 'Network timeout. Check your connection and try again.',
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<ErrorState message="Network timeout. Check your connection and try again." onRetry={() => refetch()} />`,
+      },
+    },
+  },
 };
 
 export const WithRetry: Story = {
   args: {
     message: "We couldn't connect to the server (API error). Please try again in a few moments.",
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<ErrorState
+  message="We couldn't connect to the server (API error). Please try again in a few moments."
+  onRetry={() => refetch()}
+/>`,
+      },
+    },
   },
 };

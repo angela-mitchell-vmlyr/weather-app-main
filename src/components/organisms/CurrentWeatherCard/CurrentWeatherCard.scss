@@ -1,10 +1,10 @@
 :root {
   --current-weather-bg: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-dark) 100%);
-  --current-weather-padding: var(--spacing-xl);
-  --current-weather-radius: var(--radius-xl);
+  --current-weather-padding: var(--spacing-48);
+  --current-weather-radius: var(--radius-32);
 
   --current-weather-date-color: rgba(255, 255, 255, 0.8);
-  --current-weather-temp-size: var(--font-size-5xl);
+  --current-weather-temp-size: 4rem;
 }
 
 .current-weather-card {
@@ -39,18 +39,18 @@
 }
 
 .current-weather-card__location {
-  font-size: var(--font-size-2xl);
+  font-size: 2rem;
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-primary);
   color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-8);
 }
 
 .current-weather-card__date {
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   font-family: var(--font-primary);
   color: var(--current-weather-date-color);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-64);
 }
 
 .current-weather-card__weather {

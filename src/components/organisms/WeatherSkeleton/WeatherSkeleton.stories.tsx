@@ -10,4 +10,10 @@ const meta: Meta<typeof WeatherSkeleton> = {
 export default meta;
 type Story = StoryObj<typeof WeatherSkeleton>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: {
+    docs: {
+      source: { code: `<WeatherSkeleton />` },
+    },
+  },
+};

@@ -7,9 +7,9 @@
   --input-text: var(--text-primary);
   --input-text-placeholder: var(--text-tertiary);
 
-  --input-padding-x: var(--spacing-md);
-  --input-padding-y: var(--spacing-sm);
-  --input-radius: var(--radius-md);
+  --input-padding-x: var(--spacing-24);
+  --input-padding-y: var(--spacing-16);
+  --input-radius: var(--radius-16);
 }
 
 .input {
@@ -19,7 +19,7 @@
   border: 0.0625rem solid var(--input-border);
   border-radius: var(--input-radius);
   color: var(--input-text);
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   font-family: var(--font-primary);
   transition: var(--transition-base);
 

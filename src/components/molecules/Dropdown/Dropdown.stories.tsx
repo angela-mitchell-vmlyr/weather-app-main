@@ -29,6 +29,22 @@ export const SingleSelect: Story = {
       { label: 'Imperial (°F, mph)', value: 'imperial' },
     ],
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Dropdown
+  label="Units"
+  icon="⚙️"
+  variant="single"
+  options={[
+    { label: 'Metric (°C, km/h)', value: 'metric', selected: true },
+    { label: 'Imperial (°F, mph)', value: 'imperial' },
+  ]}
+  onSelect={(value) => setUnits(value)}
+/>`,
+      },
+    },
+  },
 };
 
 export const MultiSelect: Story = {
@@ -41,5 +57,22 @@ export const MultiSelect: Story = {
       { label: 'Option B', value: 'b' },
       { label: 'Option C', value: 'c', selected: true },
     ],
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Dropdown
+  label="Options"
+  icon="⚙️"
+  variant="multi"
+  options={[
+    { label: 'Option A', value: 'a', selected: true },
+    { label: 'Option B', value: 'b' },
+    { label: 'Option C', value: 'c', selected: true },
+  ]}
+  onSelect={(value) => toggleOption(value)}
+/>`,
+      },
+    },
   },
 };

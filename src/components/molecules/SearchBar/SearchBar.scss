@@ -1,5 +1,5 @@
 :root {
-  --search-bar-gap: var(--spacing-sm);
+  --search-bar-gap: var(--spacing-16);
   --search-bar-error-color: var(--accent-secondary);
 }
 
@@ -19,7 +19,7 @@
   border: 0.0625rem solid var(--input-border);
   border-radius: var(--input-radius);
   color: var(--input-text);
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   font-family: var(--font-primary);
   transition: var(--transition-base);
 
@@ -46,7 +46,7 @@
   color: var(--button-text-primary);
   border: none;
   border-radius: var(--button-radius);
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-primary);
   cursor: pointer;
@@ -64,7 +64,7 @@
 }
 
 .search-bar__error {
-  margin-top: var(--spacing-xs);
+  margin-top: var(--spacing-8);
   color: var(--search-bar-error-color);
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
 }

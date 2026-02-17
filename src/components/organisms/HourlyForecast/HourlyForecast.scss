@@ -1,7 +1,7 @@
 :root {
   --hourly-forecast-bg: var(--background-secondary);
-  --hourly-forecast-padding: var(--spacing-md);
-  --hourly-forecast-radius: var(--radius-lg);
+  --hourly-forecast-padding: var(--spacing-24);
+  --hourly-forecast-radius: var(--radius-24);
   --hourly-forecast-max-height: 37.5rem;
 }
 
@@ -15,11 +15,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-24);
 }
 
 .hourly-forecast__title {
-  font-size: var(--font-size-xl);
+  font-size: 1.5rem;
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-primary);
   color: var(--text-primary);
@@ -29,9 +29,9 @@
   background: var(--background-tertiary);
   color: var(--text-primary);
   border: none;
-  border-radius: var(--radius-md);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  font-size: var(--font-size-sm);
+  border-radius: var(--radius-16);
+  padding: var(--spacing-8) var(--spacing-16);
+  font-size: 0.875rem;
   font-family: var(--font-primary);
   cursor: pointer;
 }
@@ -47,12 +47,12 @@
 
 .hourly-forecast__list::-webkit-scrollbar-track {
   background: var(--background-tertiary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-8);
 }
 
 .hourly-forecast__list::-webkit-scrollbar-thumb {
   background: var(--background-elevated);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-8);
 }
 
 .hourly-forecast__list::-webkit-scrollbar-thumb:hover {

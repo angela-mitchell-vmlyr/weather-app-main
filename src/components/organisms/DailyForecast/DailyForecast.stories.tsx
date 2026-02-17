@@ -23,11 +23,29 @@ export const Default: Story = {
     ],
     selectedIndex: 0,
   },
+  parameters: {
+    docs: {
+      source: {
+        code: `<DailyForecast
+  days={forecastDays}
+  selectedIndex={selectedDay}
+  onDaySelect={(index) => setSelectedDay(index)}
+/>`,
+      },
+    },
+  },
 };
 
 export const ThirdDaySelected: Story = {
   args: {
     ...Default.args,
     selectedIndex: 2,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<DailyForecast days={forecastDays} selectedIndex={2} onDaySelect={(index) => setSelectedDay(index)} />`,
+      },
+    },
   },
 };

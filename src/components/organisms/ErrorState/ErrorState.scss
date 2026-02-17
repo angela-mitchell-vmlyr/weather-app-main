@@ -4,32 +4,32 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--spacing-2xl) var(--spacing-md);
+  padding: var(--spacing-64) var(--spacing-24);
   min-height: 20rem;
 }
 
 .error-state__icon {
   font-size: 3rem;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-24);
   opacity: 0.5;
 }
 
 .error-state__title {
-  font-size: var(--font-size-3xl);
+  font-size: 2.5rem;
   font-weight: var(--font-weight-bold);
   font-family: var(--font-display);
   color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-16);
 }
 
 .error-state__message {
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   color: var(--text-tertiary);
   max-width: 28rem;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-32);
 }
 
 .error-state__action {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-16);
 }

@@ -21,12 +21,33 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: { text: 'Search', variant: 'primary', disabled: false },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button text="Search" variant="primary" onClick={() => handleSearch()} />`,
+      },
+    },
+  },
 };
 
 export const Secondary: Story = {
   args: { text: 'Cancel', variant: 'secondary', disabled: false },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button text="Cancel" variant="secondary" onClick={() => handleCancel()} />`,
+      },
+    },
+  },
 };
 
 export const Disabled: Story = {
   args: { text: 'Disabled Button', variant: 'primary', disabled: true },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Button text="Disabled Button" variant="primary" disabled />`,
+      },
+    },
+  },
 };

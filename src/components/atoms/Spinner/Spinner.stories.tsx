@@ -19,12 +19,27 @@ type Story = StoryObj<typeof Spinner>;
 
 export const Small: Story = {
   args: { size: 'small' },
+  parameters: {
+    docs: {
+      source: { code: `<Spinner size="small" />` },
+    },
+  },
 };
 
 export const Medium: Story = {
   args: { size: 'medium' },
+  parameters: {
+    docs: {
+      source: { code: `<Spinner size="medium" />` },
+    },
+  },
 };
 
 export const Large: Story = {
   args: { size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<Spinner size="large" />` },
+    },
+  },
 };

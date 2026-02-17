@@ -3,15 +3,15 @@
   --day-card-bg-hover: var(--background-elevated);
   --day-card-bg-selected: var(--accent-primary);
 
-  --day-card-padding: var(--spacing-md);
-  --day-card-radius: var(--radius-lg);
+  --day-card-padding: var(--spacing-24);
+  --day-card-radius: var(--radius-24);
 }
 
 .day-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-16);
   padding: var(--day-card-padding);
   background: var(--day-card-bg);
   border: none;
@@ -31,22 +31,22 @@
 }
 
 .day-card__day {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   font-weight: var(--font-weight-medium);
 }
 
 .day-card__icon {
-  font-size: var(--font-size-3xl);
+  font-size: 2.5rem;
 }
 
 .day-card__temp-max {
-  font-size: var(--font-size-lg);
+  font-size: 1.25rem;
   font-weight: var(--font-weight-bold);
   font-family: var(--font-display);
 }
 
 .day-card__temp-min {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   color: var(--text-tertiary);
 }
 

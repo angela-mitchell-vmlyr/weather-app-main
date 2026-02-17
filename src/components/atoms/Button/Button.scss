@@ -8,9 +8,9 @@
   --button-text-primary: var(--text-primary);
   --button-text-disabled: var(--text-tertiary);
 
-  --button-padding-x: var(--spacing-md);
-  --button-padding-y: var(--spacing-sm);
-  --button-radius: var(--radius-md);
+  --button-padding-x: var(--spacing-24);
+  --button-padding-y: var(--spacing-16);
+  --button-radius: var(--radius-16);
 }
 
 .button {
@@ -20,7 +20,7 @@
   padding: var(--button-padding-y) var(--button-padding-x);
   border: none;
   border-radius: var(--button-radius);
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
   font-weight: var(--font-weight-semibold);
   font-family: var(--font-primary);
   cursor: pointer;

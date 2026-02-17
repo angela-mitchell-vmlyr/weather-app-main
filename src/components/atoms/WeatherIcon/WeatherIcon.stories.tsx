@@ -21,24 +21,54 @@ type Story = StoryObj<typeof WeatherIcon>;
 
 export const ClearDay: Story = {
   args: { weatherCode: 0, isDay: true, size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<WeatherIcon weatherCode={0} isDay size="large" />` },
+    },
+  },
 };
 
 export const ClearNight: Story = {
   args: { weatherCode: 0, isDay: false, size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<WeatherIcon weatherCode={0} isDay={false} size="large" />` },
+    },
+  },
 };
 
 export const Cloudy: Story = {
   args: { weatherCode: 3, isDay: true, size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<WeatherIcon weatherCode={3} isDay size="large" />` },
+    },
+  },
 };
 
 export const Rain: Story = {
   args: { weatherCode: 61, isDay: true, size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<WeatherIcon weatherCode={61} isDay size="large" />` },
+    },
+  },
 };
 
 export const Thunderstorm: Story = {
   args: { weatherCode: 95, isDay: true, size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<WeatherIcon weatherCode={95} isDay size="large" />` },
+    },
+  },
 };
 
 export const Snow: Story = {
   args: { weatherCode: 71, isDay: true, size: 'large' },
+  parameters: {
+    docs: {
+      source: { code: `<WeatherIcon weatherCode={71} isDay size="large" />` },
+    },
+  },
 };

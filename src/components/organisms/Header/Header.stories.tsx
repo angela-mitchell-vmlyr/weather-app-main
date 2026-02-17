@@ -19,8 +19,22 @@ type Story = StoryObj<typeof Header>;
 
 export const Metric: Story = {
   args: { units: 'metric' },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Header units="metric" onUnitsChange={(unit) => setUnits(unit)} />`,
+      },
+    },
+  },
 };
 
 export const Imperial: Story = {
   args: { units: 'imperial' },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Header units="imperial" onUnitsChange={(unit) => setUnits(unit)} />`,
+      },
+    },
+  },
 };
